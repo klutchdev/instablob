@@ -1,13 +1,201 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
+:root {
+  --black: #030303;
+  --black95: #030303f0;
+  --black90: #030303ee;
+  --black75: #030303af;
+  --black60: #030303a0;
+  --black50: #03030385;
+  --black25: #03030350;
+  --black10: #03030320;
+  --dark: #101315;
+  --grey-950: #151718;
+  --grey-900: #1d2021;
+  --grey-850: #222325;
+  --grey-800: #2f3234;
+  --grey-700: #36393a;
+  --grey-600: #424748;
+  --grey-500: #5d6263;
+  --grey-400: #6b6f71;
+  --grey-300: #737779;
+  --grey-200: #9aa0a4;
+  --grey-100: #b2b7bb;
+  --grey-50: #cacfd3;
+  --light: #eeeeee;
+  --white: #fefefe;
+
+  --red: hsl(348, 100%, 61%);
+  --blue: #1da1f2;
+  --light-blue: #00bbff;
+  --orange: #fa8142;
+  --green: #09c372;
+  --light-green: #22da6b;
+  --purple: hsl(265, 50%, 60%);
+  --yellow: hsl(53, 100%, 60%);
+  --pink: #ff4088;
+  --shadow: var(--black75) 3px 5px 10px;
+  --border-radius: 5px;
+  --font-primary: "Montserrat";
+  --code-font: "Fira Code";
+  --code-font-variant: "Fira Code VF";
+  --code-bg: #1f2127;
+  --filename: #23262d;
+  --shadow: #03030350 1px 1px 15px;
+  font-size: 1rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--light);
+  font-family: "Montserrat";
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 4rem;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 2px solid var(--grey-50);
+}
+
+.bottom-navigation-item {
+  margin: auto;
+  color: var(--grey-700);
+}
+
+.top-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4.5rem;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--grey-50);
+}
+
+.top-navigation-item svg {
+  margin: auto;
+  color: var(--grey-300);
+}
+
+.top-navigation-item:first-child svg {
+  margin: auto 1rem auto 1rem;
+  color: var(--grey-800);
+}
+
+.top-navigation-item:last-child svg {
+  margin: 0.5rem 2rem auto auto;
+  color: var(--grey-500);
+}
+
+.top-navigation-title {
+  margin: auto auto auto 0;
+  color: var(--grey-800);
+  font-size: 250%;
+  font-weight: 300;
+  font-family: "Grand Hotel";
+}
+
+.story-tray-container {
+  position: absolute;
+  top: 5.5rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.story-container {
+  margin: auto auto auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-avatar {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  margin: auto;
+  background: var(--grey-200);
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  padding-left: 1rem;
+}
+
+.profile-stat {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 80%;
+}
+
+.profile-top-half {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profile-stat-container {
+  display: flex;
+  flex-direction: column;
+  /* height: 20%; */
+}
+
+.profile-stats {
+  margin: auto 1rem;
+  display: flex;
+  flex-direction: row;
+  word-spacing: 0;
+}
+
+.profile-tab-bar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-tab-item {
+  margin: auto;
+  width: auto;
+}
+
+.profile-bottom-half {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
 }

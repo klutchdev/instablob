@@ -1,17 +1,28 @@
 {
   "name": "fire-demo-beta",
-  "version": "0.1.0",
+  "version": "0.0.2",
+  "description": "A mini instagram clone for teaching firebase",
+  "author": {
+    "name": "Kyle 'Klutch' Leary",
+    "email": "klutchdevelopment@gmail.com"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "firebase": "^9.0.0-beta.7",
+    "framer-motion": "^4.1.17",
+    "klutch-fire-hooks": "0.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "source-map-explorer": "^2.5.2"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "clean": "rm -rf node_modules package-lock.json build && npm i",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

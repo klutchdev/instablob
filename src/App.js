@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BottomNavigation from "./components/BottomNavigation";
+import TopNavigation from "./components/TopNavigation";
 
-function App() {
+// import ShowErr from "./components/ShowErr";
+import Home from "./pages/Feed";
+import Footer from "./components/Footer";
+import SignInPage from "./pages/SignIn";
+import SignUpPage from "./pages/SignUp";
+import ResetPasswordPage from "./pages/ResetPassword";
+import ProfilePage from "./pages/Profile";
+import { Camera } from "./icons/camera";
+import { Share } from "./icons/share";
+// import StoryTray from "./components/StoryTray";
+
+const Loading = () => (
+  <div
+    style={{
+      display: `flex`,
+      alignItems: `center`,
+      justifyContent: `center`,
+      height: `100vh`,
+      width: `100vw`,
+    }}
+  >
+    <h1 style={{ margin: `auto`, fontWeight: 500 }}>Loading...</h1>
+  </div>
+);
+
+const App = () => {
+  // const { user, loading, error } = useAuthState(auth);
+  // const isDesktop = useMedia("(min-width: 1080px)");
+  // const isLandscape = useMedia("(max-width: 1080px) and (max-height: 600px)");
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
+  // if (error) {
+  //   return <ShowErr err={error} />;
+  // } else {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <TopNavigation
+        title="insta-Blob"
+        leftIcon={<Camera size="35" />}
+        rightIcon={<Share size="30" />}
+      />
+      {/* <StoryTray /> */}
+      <BottomNavigation />
+      <Footer />
+      <Router>
+        <Switch>
+          <Route component={ProfilePage} path="/profile" />
+          <Route component={SignUpPage} path="/sign-up" />
+          <Route component={ResetPasswordPage} path="/reset-password" />
+          <Route component={SignInPage} path="/sign-in" />
+          <Route component={Home} path="/" />
+        </Switch>
+      </Router>
+    </Suspense>
   );
-}
+};
 
 export default App;
