@@ -13,6 +13,7 @@ const SignInForm = () => {
           functions
         </h3>
         <IconButton
+          type="button"
           onClick={googleSignIn}
           icon={<Google size="25" />}
           label="Sign in"
