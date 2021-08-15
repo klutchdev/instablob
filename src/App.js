@@ -52,9 +52,9 @@ const App = () => {
       <Router>
         <Switch>
           <Route component={ProfilePage} path="/profile" />
+          <Route component={SignInPage} path="/sign-in" />
           <Route component={SignUpPage} path="/sign-up" />
           <Route component={ResetPasswordPage} path="/reset-password" />
-          <Route component={SignInPage} path="/sign-in" />
           <Route component={Home} path="/" />
         </Switch>
       </Router>
