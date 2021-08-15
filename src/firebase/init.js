@@ -6,12 +6,12 @@ import { getAuth, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/
 import firebaseConfig from "./fbConfig";
 const firebaseApp = initializeApp(firebaseConfig);
 
+export const firestore = getFirestore(firebaseApp);
+export const storage = getStorage(firebaseApp);
+
 export const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider();
 export const logOut = () => signOut(auth);
 export const googleSignIn = async () => {
-  await signInWithPopup(auth, provider);
+  await signInWithPopup(auth, provider).catch((err) => alert(err));
 };
-
-export const firestore = getFirestore(firebaseApp);
-export const storage = getStorage(firebaseApp);
