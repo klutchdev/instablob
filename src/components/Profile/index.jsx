@@ -4,21 +4,21 @@ import AvatarImage from "../AvatarImage/index";
 import ProfileGrid from "../ProfileGrid/index";
 import { useEffect, useState } from "react";
 import { getUserData } from "../../firebase/firestore";
-import { useAuthState } from "klutch-fire-hooks/auth";
-import { auth } from "../../firebase/init";
+// import { useAuthState } from "klutch-fire-hooks/auth";
+// import { auth } from "../../firebase/init";
 
 const UserProfile = () => {
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
   const [bio, setBio] = useState("");
-  const [usersName, setUsersName] = useState("");
+  const [userName, setUserName] = useState("");
   const [posts, setPosts] = useState(0);
   const [followers, setFollowers] = useState(0);
   const [following, setFollowing] = useState(0);
 
   useEffect(() => {
-    const unsub = getUserData(user.uid).then((result) => {
+    const unsub = getUserData("klutch").then((result) => {
       const { name, bio, postCount, followerCount, followingCount } = result;
-      setUsersName(name);
+      setUserName(name);
       setBio(bio);
       setPosts(postCount);
       setFollowers(followerCount);
@@ -53,7 +53,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="profile-bottom-half">
-          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>{usersName}</h3>
+          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>{userName}</h3>
           <small style={{ color: "#cccccc", marginBottom: "1rem" }}>{bio}</small>
         </div>
       </div>
