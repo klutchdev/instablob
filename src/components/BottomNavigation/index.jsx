@@ -10,15 +10,11 @@ const BottomNavigation = () => {
   const [user] = useAuthState(auth);
   return (
     <nav className="bottom-navigation">
-      <BottomNavItem icon={<HouseActive size="20" />} path="/" />
-      <BottomNavItem icon={<Search size="20" />} path="/search" />
-      <BottomNavItem icon={<Plus size="25" />} path="/add-post" />
-      <BottomNavItem icon={<Heart size="20" />} path="/activity" />
-      {/* {user ? ( */}
+      <BottomNavItem icon={<HouseActive size="25" />} path="/" />
+      <BottomNavItem icon={<Search size="25" />} path="/search" />
+      <BottomNavItem icon={<Plus size="30" />} path="/add-post" />
+      <BottomNavItem icon={<Heart size="25" />} path="/activity" />
       <BottomNavAvatar avatarImg={user.photoURL} path="/profile" />
-      {/* ) : (
-        <BottomNavItem icon={<UserCircle size="25" />} path="/profile" />
-      )} */}
     </nav>
   );
 };
