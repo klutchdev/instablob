@@ -51,10 +51,10 @@ const App = () => {
       <Footer />
       <Router>
         <Switch>
-          <Route component={ProfilePage} path="/profile" />
-          <Route component={SignInPage} path="/sign-in" />
-          <Route component={SignUpPage} path="/sign-up" />
-          <Route component={ResetPasswordPage} path="/reset-password" />
+          <Route component={ProfilePage} exact path="/profile" />
+          <Route component={SignInPage} exact path="/sign-in" />
+          <Route component={SignUpPage} exact path="/sign-up" />
+          <Route component={ResetPasswordPage} exact path="/reset-password" />
           <Route component={Home} path="/" />
         </Switch>
       </Router>
