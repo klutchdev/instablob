@@ -94,12 +94,12 @@ const PostsFeed = () => {
   return (
     <>
       {posts.map((post) => {
-        const { owner, likes, liked, caption, comments, createdAt, imageUrl } = post;
+        const { id, owner, likes, liked, caption, comments, createdAt, imageUrl } = post;
 
         return (
           <Suspense fallback={<Loading />}>
             <Post
-              key={post.id}
+              key={id}
               owner={owner}
               likes={likes}
               liked={liked}

@@ -1,26 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+// import { useAuthState } from "klutch-fire-hooks/auth";
+
+// import { auth } from "../../firebase/init";
+
 const ProfileGrid = () => {
+  // const [user] = useAuthState(auth);
   let photos = [
     "https://picsum.photos/120?random=0",
     "https://picsum.photos/120?random=1",
-    "https://picsum.photos/120?random=2",
-    "https://picsum.photos/120?random=3",
-    "https://picsum.photos/120?random=4",
-    "https://picsum.photos/120?random=5",
-    "https://picsum.photos/120?random=6",
-    "https://picsum.photos/120?random=7",
-    "https://picsum.photos/120?random=8",
-    "https://picsum.photos/120?random=9",
-    "https://picsum.photos/120?random=10",
-    "https://picsum.photos/120?random=11",
-    "https://picsum.photos/120?random=12",
-    "https://picsum.photos/120?random=13",
+    // "https://picsum.photos/120?random=2",
+    // "https://picsum.photos/120?random=3",
+    // "https://picsum.photos/120?random=4",
+    // "https://picsum.photos/120?random=5",
+    // "https://picsum.photos/120?random=6",
+    // "https://picsum.photos/120?random=7",
+    // "https://picsum.photos/120?random=8",
+    // "https://picsum.photos/120?random=9",
+    // "https://picsum.photos/120?random=10",
+    // "https://picsum.photos/120?random=11",
+    // "https://picsum.photos/120?random=12",
+    // "https://picsum.photos/120?random=13",
   ];
 
   return (
     <div className="profile-grid-container">
       {photos &&
-        photos.map((item) => {
-          return <ProfileGridItem key={item} imageUrl={item} handleClick={() => {}} />;
+        photos.map((photo) => {
+          return <ProfileGridItem key={photo} imageUrl={photo} handleClick={() => {}} />;
         })}
     </div>
   );

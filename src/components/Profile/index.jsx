@@ -1,21 +1,30 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import BasicButton from "../BasicButton";
 import AvatarImage from "../AvatarImage/index";
 import ProfileGrid from "../ProfileGrid/index";
 import { useEffect, useState } from "react";
+import { getUserData } from "../../firebase/firestore";
+import { useAuthState } from "klutch-fire-hooks/auth";
+import { auth } from "../../firebase/init";
 
 const UserProfile = () => {
-  const [name, setName] = useState("");
-  const [postCount, setPostCount] = useState(0);
-  const [followerCount, setFollowerCount] = useState(0);
-  const [followingCount, setFollowingCount] = useState(0);
+  const [user] = useAuthState(auth);
   const [bio, setBio] = useState("");
+  const [usersName, setUsersName] = useState("");
+  const [posts, setPosts] = useState(0);
+  const [followers, setFollowers] = useState(0);
+  const [following, setFollowing] = useState(0);
 
   useEffect(() => {
-    setName("Kyle Leary");
-    setBio("I'm the one that made this mess. Enjoy! 🔥");
-    setPostCount(0);
-    setFollowerCount(0);
-    setFollowingCount(0);
+    const unsub = getUserData(user.uid).then((result) => {
+      const { name, bio, postCount, followerCount, followingCount } = result;
+      setUsersName(name);
+      setBio(bio);
+      setPosts(postCount);
+      setFollowers(followerCount);
+      setFollowing(followingCount);
+    });
+    return () => unsub;
   }, []);
 
   return (
@@ -25,11 +34,12 @@ const UserProfile = () => {
           <AvatarImage />
           <div className="profile-stat-container">
             <div className="profile-stats">
-              <StatContainer label="posts" value={postCount} />
-              <StatContainer label="followers" value={followerCount} />
-              <StatContainer label="following" value={followingCount} />
+              <StatContainer label="posts" value={posts} />
+              <StatContainer label="followers" value={followers} />
+              <StatContainer label="following" value={following} />
             </div>
             <BasicButton
+              type="button"
               bgColor="#1a1b1c"
               textColor="#d9d9d9"
               height="2.5rem"
@@ -43,7 +53,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="profile-bottom-half">
-          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>{name}</h3>
+          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>{usersName}</h3>
           <small style={{ color: "#cccccc", marginBottom: "1rem" }}>{bio}</small>
         </div>
       </div>
