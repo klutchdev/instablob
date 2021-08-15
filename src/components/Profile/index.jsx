@@ -1,12 +1,23 @@
 import BasicButton from "../BasicButton";
 import AvatarImage from "../AvatarImage/index";
-import { Grid } from "../../icons/grid";
-import { Burger } from "../../icons/burger";
-import { GeoPin } from "../../icons/geopin";
-import { Tag } from "../../icons/tag";
 import ProfileGrid from "../ProfileGrid/index";
+import { useEffect, useState } from "react";
 
 const UserProfile = () => {
+  const [name, setName] = useState("");
+  const [postCount, setPostCount] = useState(0);
+  const [followerCount, setFollowerCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
+  const [bio, setBio] = useState("");
+
+  useEffect(() => {
+    setName("Kyle Leary");
+    setBio("I'm the one that made this mess. Enjoy! 🔥");
+    setPostCount(0);
+    setFollowerCount(0);
+    setFollowingCount(0);
+  }, []);
+
   return (
     <>
       <div className="profile-container">
@@ -14,16 +25,16 @@ const UserProfile = () => {
           <AvatarImage />
           <div className="profile-stat-container">
             <div className="profile-stats">
-              <StatContainer label="posts" value="1" />
-              <StatContainer label="followers" value="0" />
-              <StatContainer label="following" value="0" />
+              <StatContainer label="posts" value={postCount} />
+              <StatContainer label="followers" value={followerCount} />
+              <StatContainer label="following" value={followingCount} />
             </div>
             <BasicButton
               bgColor="#1a1b1c"
               textColor="#d9d9d9"
               height="2.5rem"
-              radius="3px"
-              width="80%"
+              radius="2px"
+              width="75%"
               label="Edit profile"
               fontWeight={600}
               fontSize="100%"
@@ -32,15 +43,9 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="profile-bottom-half">
-          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>Kyle Leary</h3>
-          <small style={{ color: "#cccccc", marginBottom: "1rem" }}>
-            This is my profile, hope you enjoy! 🔥
-          </small>
-          {/* <a alt="" href="/">
-            klutch-docs.netlify.app
-          </a> */}
+          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>{name}</h3>
+          <small style={{ color: "#cccccc", marginBottom: "1rem" }}>{bio}</small>
         </div>
-        {/* <ProfileTabBar /> */}
       </div>
       <ProfileGrid />
     </>
@@ -56,23 +61,23 @@ const StatContainer = ({ label, value }) => {
   );
 };
 
-export const ProfileTabBar = () => {
-  return (
-    <div className="profile-tab-bar-container">
-      <ProfileTabItem icon={<Grid size="20" />} />
-      <ProfileTabItem icon={<Burger size="20" />} />
-      <ProfileTabItem icon={<GeoPin size="20" />} />
-      <ProfileTabItem icon={<Tag size="20" />} />
-    </div>
-  );
-};
-
-const ProfileTabItem = ({ icon, handleClick }) => {
-  return (
-    <div onClick={handleClick} className="profile-tab-item">
-      {icon}
-    </div>
-  );
-};
-
 export default UserProfile;
+
+// export const ProfileTabBar = () => {
+//   return (
+//     <div className="profile-tab-bar-container">
+//       <ProfileTabItem icon={<Grid size="20" />} />
+//       <ProfileTabItem icon={<Burger size="20" />} />
+//       <ProfileTabItem icon={<GeoPin size="20" />} />
+//       <ProfileTabItem icon={<Tag size="20" />} />
+//     </div>
+//   );
+// };
+
+// const ProfileTabItem = ({ icon, handleClick }) => {
+//   return (
+//     <div onClick={handleClick} className="profile-tab-item">
+//       {icon}
+//     </div>
+//   );
+// };

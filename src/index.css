@@ -70,7 +70,7 @@ body {
 
 .content-wrapper {
   height: 100%;
-  padding: 2.5rem 0 3rem 0;
+  padding: 3.5rem 0 3rem 0;
   overflow-y: scroll;
 }
 
@@ -195,9 +195,10 @@ body {
   width: 4rem;
   border-radius: 50%;
   /* border: 2px solid; */
+  background-color: var(--dark);
   margin: auto;
   padding: 3px;
-  background: var(--dark);
+  /* background: var(--dark); */
 }
 
 .story-username {
@@ -223,7 +224,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 80%;
+  font-size: 75%;
 }
 .profile-top-half {
   display: flex;
@@ -272,20 +273,27 @@ body {
 /**========================================================*/
 .profile-grid-container {
   margin: 0;
-  width: 100vw;
+  padding: 0;
+  width: calc(100vw);
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px;
+  row-gap: 2px;
+  column-gap: 2px;
   padding-bottom: 3rem;
 }
 
 .profile-grid-image-container {
   margin: auto;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   /* border: #333333 1px solid; */
+}
+
+.profile-grid-image img {
+  width: min-content;
 }
 
 /**========================================================//
@@ -329,6 +337,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   color: var(--light);
+  transition: all ease 400ms;
 }
 
 .post-tool-bar svg:first-child {
@@ -343,6 +352,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   color: var(--light);
+  transition: all ease 400ms;
 }
 
 .post-caption {
@@ -374,6 +384,67 @@ body {
   align-items: center;
   justify-content: flex-start;
   color: var(--grey-200);
+}
+
+/**========================================================//
+  Sign in
+/**========================================================*/
+.sign-in-container {
+  height: calc(100vh);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 1rem; */
+}
+
+.sign-in {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.sign-in-logo {
+  font-size: 325%;
+  color: var(--light);
+  font-family: "Grand Hotel";
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+.sign-in-description {
+  padding: 0 1rem;
+  color: var(--grey-100);
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+/**========================================================//
+  Misc
+/**========================================================*/
+
+.loader {
+  margin: auto;
+  border: 4px solid var(--light);
+  border-top: 4px solid var(--dark);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: rotation 1.25s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 body::-webkit-scrollbar,
