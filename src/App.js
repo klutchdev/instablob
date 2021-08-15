@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BottomNavigation from "./components/BottomNavigation";
-import TopNavigation from "./components/TopNavigation";
 
 // import ShowErr from "./components/ShowErr";
 import Home from "./pages/Feed";
@@ -10,9 +9,9 @@ import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
 import ResetPasswordPage from "./pages/ResetPassword";
 import ProfilePage from "./pages/Profile";
-import { Camera } from "./icons/camera";
-import { Share } from "./icons/share";
-// import StoryTray from "./components/StoryTray";
+import SearchPage from "./pages/Search";
+import ActivityPage from "./pages/Activity";
+import AddPostPage from "./pages/AddPost";
 
 const Loading = () => (
   <div
@@ -41,20 +40,23 @@ const App = () => {
   // } else {
   return (
     <Suspense fallback={<Loading />}>
-      <TopNavigation
-        title="insta-Blob"
-        leftIcon={<Camera size="35" />}
-        rightIcon={<Share size="30" />}
-      />
+      {/* <TopNavigation
+        title="instaBlob"
+        leftIcon={<Camera size="25" />}
+        rightIcon={<Share size="25" />}
+      /> */}
       {/* <StoryTray /> */}
       <BottomNavigation />
       <Footer />
       <Router>
         <Switch>
+          <Route component={ActivityPage} exact path="/activity" />
+          <Route component={AddPostPage} exact path="/add-post" />
           <Route component={ProfilePage} exact path="/profile" />
+          <Route component={ResetPasswordPage} exact path="/reset-password" />
+          <Route component={SearchPage} exact path="/search" />
           <Route component={SignInPage} exact path="/sign-in" />
           <Route component={SignUpPage} exact path="/sign-up" />
-          <Route component={ResetPasswordPage} exact path="/reset-password" />
           <Route component={Home} path="/" />
         </Switch>
       </Router>

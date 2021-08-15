@@ -4,6 +4,7 @@ import { Grid } from "../../icons/grid";
 import { Burger } from "../../icons/burger";
 import { GeoPin } from "../../icons/geopin";
 import { Tag } from "../../icons/tag";
+import ProfileGrid from "../ProfileGrid/index";
 
 const UserProfile = () => {
   return (
@@ -13,15 +14,15 @@ const UserProfile = () => {
           <AvatarImage />
           <div className="profile-stat-container">
             <div className="profile-stats">
-              <StatContainer label="posts" value="200" />
-              <StatContainer label="followers" value="54.8k" />
-              <StatContainer label="following" value="323" />
+              <StatContainer label="posts" value="1" />
+              <StatContainer label="followers" value="0" />
+              <StatContainer label="following" value="0" />
             </div>
             <BasicButton
               bgColor="#1a1b1c"
-              textColor="#eeeeee"
+              textColor="#d9d9d9"
               height="2.5rem"
-              borderRadius="4px"
+              radius="3px"
               width="80%"
               label="Edit profile"
               fontWeight={600}
@@ -31,19 +32,17 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="profile-bottom-half">
-          <h3>Shreddy_Twerkury</h3>
-          <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A eos molestiae
-            commodi. Minima architecto, consequuntur cupiditate aperiam exercitationem
-            debitis, eligendi amet nisi eaque sunt beatae, nihil voluptas aliquid porro
-            ratione.
+          <h3 style={{ color: "#d9d9d9", marginBottom: "0.5rem" }}>Kyle Leary</h3>
+          <small style={{ color: "#cccccc", marginBottom: "1rem" }}>
+            This is my profile, hope you enjoy! 🔥
           </small>
           {/* <a alt="" href="/">
             klutch-docs.netlify.app
           </a> */}
         </div>
-        <ProfileTabBar />
+        {/* <ProfileTabBar /> */}
       </div>
+      <ProfileGrid />
     </>
   );
 };
@@ -60,10 +59,10 @@ const StatContainer = ({ label, value }) => {
 export const ProfileTabBar = () => {
   return (
     <div className="profile-tab-bar-container">
-      <ProfileTabItem icon={<Grid />} />
-      <ProfileTabItem icon={<Burger />} />
-      <ProfileTabItem icon={<GeoPin />} />
-      <ProfileTabItem icon={<Tag />} />
+      <ProfileTabItem icon={<Grid size="20" />} />
+      <ProfileTabItem icon={<Burger size="20" />} />
+      <ProfileTabItem icon={<GeoPin size="20" />} />
+      <ProfileTabItem icon={<Tag size="20" />} />
     </div>
   );
 };

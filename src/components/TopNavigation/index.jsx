@@ -1,9 +1,17 @@
-const TopNavigation = ({ leftIcon, title, rightIcon }) => {
+const TopNavigation = ({
+  leftIcon,
+  title,
+  rightIcon,
+  style,
+  handleLeft,
+  handleRight,
+  handleTitle,
+}) => {
   return (
-    <nav className="top-navigation">
-      <TopNavItem handleClick={() => {}} icon={leftIcon} />
-      <TopNavTitle handleClick={() => {}} title={title} />
-      <TopNavItem handleClick={() => {}} icon={rightIcon} />
+    <nav className="top-navigation" style={style}>
+      <TopNavItem handleClick={handleLeft} icon={leftIcon} />
+      <TopNavTitle handleClick={handleTitle} title={title} />
+      <TopNavItem handleClick={handleRight} icon={rightIcon} />
     </nav>
   );
 };

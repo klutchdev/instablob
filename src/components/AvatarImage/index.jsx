@@ -7,7 +7,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
-const AvatarImage = () => {
+const AvatarImage = ({ size }) => {
   const { user } = useContext(AuthContext);
   const hiddenInput = useRef(null);
   const [file, setFile] = useState(null);
@@ -41,7 +41,7 @@ const AvatarImage = () => {
       <div
         onClick={user ? handleClick : () => {}}
         style={{
-          margin: "1rem auto 1rem auto",
+          margin: "0.75rem auto",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -52,13 +52,13 @@ const AvatarImage = () => {
         {user && (
           <img
             style={{
-              margin: "0 auto 0 auto",
-              minWidth: "125px",
-              minHeight: "125px",
+              minWidth: "25px",
+              minHeight: "25px",
               maxWidth: "200px",
               maxHeight: "200px",
-              width: "125px",
-              height: "125px",
+              width: size || "150px",
+              height: size || "150px",
+              margin: "0 auto 0 auto",
               borderRadius: "50%",
               boxShadow: "1px 1px 12px #030303aa",
             }}
